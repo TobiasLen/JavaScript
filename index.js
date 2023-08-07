@@ -1,0 +1,1 @@
+console.log("escribiendo metodo 2")
