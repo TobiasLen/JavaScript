@@ -7,9 +7,44 @@
     <script src="./js/hamburgesas.js"></script>
     <script src="./js/objetos.js"></script>
     <script src="./js/funciones_superiores.js"></script>
-    
+    <script src="./js/login.js"></script>
+    <script src="./js/carrito.js"></script>
+    <script src="./js/eventos.js"></script>
+    <script src="./js/JSON.js"></script>
+</head>
+
 <body>
-    
+    <div id="loginSection">
+        <h2>Iniciar Sesión</h2>
+        <input type="text" id="username" placeholder="Nombre de usuario">
+        <input type="password" id="password" placeholder="Contraseña">
+        <button onclick="iniciarSesion()">Iniciar Sesión</button>
+    </div>
+
+
+    <div>
+        <h2>APRETAME Y GANAS!!!</h2>
+        <button id="miBoton">Haz click</button>
+        <script>
+            let boton = 
+            document.getElementById("miBoton")
+            boton.addEventListener("click", respuestaClick)
+            function respuestaClick () {
+                console.log("Felicidades sos un bot")
+            }
+        </script>
+    </div>
+
+
+
+    <!-- <div id="carrito">
+        <h2>Carrito de Compra</h2>
+        <ul id="items">
+            // Los elementos del carrito se agregarán aquí dinámicamente 
+        </ul>
+        <p>Total: <span id="total">0</span> USD</p>
+        <button onclick="realizarCompra()">Realizar Compra</button>
+    </div> -->
 </body>
 
 </html>
