@@ -1,37 +1,47 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pedido de Hamburguesas y JSON</title>
-    <script src="./js/main.js"></script>
+    <title>Aplicación de Hamburguesas</title>
+    <script src="./js/main.js" defer></script>
 </head>
 <body>
-    <h1>Pedido de Hamburguesas y JSON</h1>
+    <h1>¡Bienvenido a Burgerland!</h1>
 
-    <h2>Menú de Hamburguesas</h2>
+    <h2>Saludo</h2>
+    <input type="text" id="saludoInput" placeholder="Escribe 'hola' aquí" />
     <button onclick="saludar()">Saludar</button>
+    <div id="saludo"></div>
+
+    <h2>Pedido de Hamburguesa</h2>
+    <label for="opcionInput">Elija una opción de hamburguesa:</label>
+    <select id="opcionInput">
+        <option value="1">Hamburguesa Vegana</option>
+        <option value="2">Hamburguesa de Carne</option>
+    </select>
     <button onclick="pedirHamburguesa()">Pedir Hamburguesa</button>
 
-    <h2>Información de Autos desde JSON</h2>
-    <button onclick="mostrarInfoAutos()">Mostrar Info de Autos</button>
-
-    <h2>Login</h2>
-    <div id="loginSection">
-        <label for="username">Nombre de usuario:</label>
-        <input type="text" id="username" placeholder="Nombre de usuario">
-        <br>
-        <label for="password">Contraseña:</label>
-        <input type="password" id="password" placeholder="Contraseña">
-        <br>
-        <button onclick="iniciarSesion()">Iniciar Sesión</button>
+    <div id="opcionVeganaDiv" style="display: none;">
+        <label for="opcionVeganaInput">Eligió la opción hamburguesa vegana. Las opciones son:</label>
+        <select id="opcionVeganaInput">
+            <option value="1">Hamburguesa de zanahoria</option>
+            <option value="2">Hamburguesa de arvejas</option>
+        </select>
     </div>
 
-    <h2>LocalStorage</h2>
-    <button onclick="guardarEnLocalStorage()">Guardar en LocalStorage</button>
-    <button onclick="obtenerDeLocalStorage()">Obtener de LocalStorage</button>
-    <button onclick="eliminarDeLocalStorage()">Eliminar de LocalStorage</button>
+    <div id="opcionCarneDiv" style="display: none;">
+        <label for="opcionCarneInput">Eligió hamburguesas de carne. ¿Le gustaría agregarle cheddar? (si/no)</label>
+        <input type="text" id="opcionCarneInput" />
+        <button onclick="pedirHamburguesaCarne()">Pedir Hamburguesa de Carne</button>
+    </div>
 
-    <script src="./js/main.js"></script>
+    <div id="displayText"></div>
+        <h2>Guardar archivo / limpiar archivo </h2>
+        <input type="text" id="inputText" placeholder="Escribe algo...">
+        <button id="boton1">Guardar</button>
+        <button id="boton2">Limpiar</button>
+
+    </div>
 </body>
-</html> -->
+</html>

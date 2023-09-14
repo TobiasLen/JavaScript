@@ -1,5 +1,5 @@
-/* // JSON
-const cars = `[
+// JSON
+const carsData = `[
 
     {
         "modelo": "ford mustang",
@@ -22,163 +22,193 @@ const cars = `[
     
 ]
 `;
-console.log(typeof cars);
 
 // variable o objetos con JSON
+const jsonData = JSON.parse(carsData);
 
-const jsonData = JSON.parse(cars);
-console.log(typeof jsonData);
+function mostrarInfoAutos() {
+    const infoAutosDiv = document.getElementById("infoAutos");
+    infoAutosDiv.innerHTML = ""; // Limpiar contenido anterior
 
-const carrosnuevos = jsonData.filter(
-    (carro) => carro.produccion > 2010 && carro.millaje <30000
-);
-console.log(carrosnuevos)
+    const carrosNuevos = jsonData.filter(
+        (carro) => carro.produccion > 2010 && carro.millaje < 30000
+    );
 
-// funciones superiores
-
-class Hamburguesa {
-    constructor (nombre, ingredientes, precioBase) {
-    this.nombre = nombre;
-    this.ingredientes = ingredientes;
-    this.precioBase = precioBase;
-    }
-
-    calcularPrecio() {
-        let precioTotal = this.precioBase + (this.ingredientes.length * 360); // Precio base + costo por ingrediente
-        return precioTotal;
-    }
-    mostrarDetalles() {
-        console.log("Hamburguesa: " + this.nombre);
-        console.log("Ingredientes: " + this.ingredientes.join(", "));
-        console.log("Precio: $" + this.calcularPrecio());
-    }
-    
+    carrosNuevos.forEach((carro) => {
+        const infoAuto = document.createElement("div");
+        infoAuto.textContent = `Modelo: ${carro.modelo}, Producción: ${carro.produccion}, Millaje: ${carro.millaje}`;
+        infoAutosDiv.appendChild(infoAuto);
+    });
 }
 
-let hamburguesa1 = new Hamburguesa("Clásica", ["Carne", "Lechuga", "Tomate", "Queso"], 3800);
-let hamburguesa2 = new Hamburguesa("Vegetariana", ["Hamburguesa de garbanzos", "Lechuga", "Tomate", "Queso vegano"], 3900);
-
-function tomarPedido(hamburguesa) {
-    console.log("Pedido tomado:");
-    hamburguesa.mostrarDetalles();
-    cobrar(hamburguesa.calcularPrecio());
-}
-
-function cobrar(total) {
-    console.log("Total a pagar: $" + total.toFixed(2));
-}
-
-tomarPedido(hamburguesa1);
-tomarPedido(hamburguesa2);
-
-// login
-
-function iniciarSesion() {
-    let username = document.getElementById("username").value;
-    let password = document.getElementById("password").value;
-
-    // Verificar las credenciales (esto es solo un ejemplo simplificado)
-    if (username === "usuario" && password === "contraseña") {
-        alert("Inicio de sesión exitoso.");
-        document.getElementById("loginSection").style.display = "none"; // Ocultar la sección de inicio de sesión
-    } else {
-        alert("Credenciales incorrectas. Intente de nuevo.");
-    }
-}
-
-// Funciones + alerts (cambiar alerts y prompt)
+// ...
 
 // Función para saludar
 function saludar() {
-    console.log("Hola a todos!!");
-    let saludo = "";
-    
-    while (saludo.toLowerCase() !== "hola") {
-        saludo = prompt("Por favor, ingresa el saludo 'hola':").toLowerCase();
+    const saludoDiv = document.getElementById("saludo");
+    saludoDiv.innerHTML = ""; // Limpiar contenido anterior
+
+    const saludoInput = document.getElementById("saludoInput");
+    const saludo = saludoInput.value.toLowerCase();
+
+    if (saludo === "hola") {
+        saludoDiv.textContent = "¡Hola a todos!!";
+    } else {
+        saludoDiv.textContent = "Por favor, ingresa el saludo 'hola'.";
     }
-    
-    console.log(saludo);
 }
+
+// ...
 
 // Función para pedir hamburguesa
 function pedirHamburguesa() {
-    let opcion = 0;
-    
-    while (opcion !== 1 && opcion !== 2) {
-        opcion = parseInt(prompt("Elija una opción:\n1-Hamburguesa Vegana\n2-Hamburguesa Carne"));
-    }
-    
+    const opcionInput = document.getElementById("opcionInput");
+    const opcion = parseInt(opcionInput.value);
+
     if (opcion === 1) {
         pedirHamburguesaVegana();
     } else if (opcion === 2) {
         pedirHamburguesaCarne();
+    } else {
+        alert("Por favor, elija una opción válida.");
     }
 }
 
 // Función para pedir hamburguesa vegana
 function pedirHamburguesaVegana() {
-    let opcion2 = 0;
-    
-    while (opcion2 !== 1 && opcion2 !== 2) {
-        opcion2 = parseInt(prompt("Eligió la opción hamburguesa vegana. Las opciones son:\n1-Hamburguesa de zanahoria\n2-Hamburguesa de arvejas"));
-    }
-    
+    const opcionVeganaInput = document.getElementById("opcionVeganaInput");
+    const opcion2 = parseInt(opcionVeganaInput.value);
+
     if (opcion2 === 1) {
         console.log("Eligió la hamburguesa de zanahoria, viene con 1 disco acompañado con lechuga y tomate.");
     } else if (opcion2 === 2) {
         console.log("Eligió la hamburguesa de arvejas, viene con 1 disco acompañado con lechuga y tomate.");
+    } else {
+        alert("Por favor, elija una opción válida.");
     }
 }
 
 // Función para pedir hamburguesa de carne
 function pedirHamburguesaCarne() {
-    let opcion1 = prompt("Eligió hamburguesas de carne. ¿Le gustaría agregarle cheddar? (si/no)").toLowerCase();
-    
-    if (opcion1 === "si") {
+    const opcionCarneInput = document.getElementById("opcionCarneInput");
+    const opcion1 = opcionCarneInput.value.toLowerCase();
+
+    if (opcion1 === 3) {
         console.log("Eligió sí, su hamburguesa sería una Triple cheddar con bacon, lechuga y tomate.");
-    } else if (opcion1 === "no") {
+    } else if (opcion1 === 3) {
         console.log("Eligió no, su hamburguesa sería una Triple con bacon, lechuga y tomate.");
+    } else {
+        alert("Por favor, responda con 'si' o 'no'.");
     }
 }
 
-
-// Función principal
-function main() {
-    let nombreCliente = prompt("Cliente, escriba su nombre");
-    console.log("Bienvenido/a " + nombreCliente);
-    
-    pedirHamburguesa();
-    
-    const cantidadIgredientes = 3;
-    const ingredientes = [];
-    
-    for (let i = 0; i < cantidadIgredientes; i++) {
-        let n = i + 1;
-        ingredientes.push(prompt("Agregar ingredientes " + n));
-    }
-    
-    console.log(ingredientes);
-}
+// ...
 
 // Llamada a la función principal
-main();
-
-// localStoreage
-
-// Guardar un valor en localStorage
-localStorage.setItem("nombre", "John");
-
-// Obtener un valor de localStorage
-var nombre = localStorage.getItem("nombre");
-console.log("Nombre: " + nombre); // Imprimirá "Nombre: John" en la consola
-
-// Eliminar un valor de localStorage
-localStorage.removeItem("nombre");
-
-// Intentar obtener el valor después de eliminarlo
-nombre = localStorage.getItem("nombre");
-if (nombre === null) {
-console.log("El valor 'nombre' ha sido eliminado de localStorage.");
-} else {
-console.log("Nombre: " + nombre);
+/* function main() {
+    const nombreClienteInput = document.getElementById("nombreInput");
+    const nombreCliente = nombreClienteInput.value;
+    const nombreBienvenida = document.getElementById("nombreBienvenida");
+    
+    if (nombreCliente) {
+        nombreBienvenida.textContent = `Bienvenido/a ${nombreCliente}`;
+        pedirHamburguesa();
+        
+        const cantidadIngredientes = 3;
+        const ingredientes = [];
+        
+        for (let i = 0; i < cantidadIngredientes; i++) {
+            let n = i + 1;
+            const ingredienteInput = document.getElementById("ingredienteInput" + n);
+            ingredientes.push(ingredienteInput.value);
+        }
+        
+        console.log(ingredientes);
+    } else {
+        alert("Por favor, escriba su nombre.");
+    }
 } */
+
+
+/* const quitarSubmit = document.querySelector("form.formNombre");
+quitarSubmit.addEventListener("DOMContentLoaded", (e) =>{
+
+quitarSubmit.addEventListener("submit", (e) =>{
+    e.preventDefault();
+    const nombreUser = e.target[0].value;
+    localStorage.setItem("nombre", JSON.stringify(nombreUser));
+}) 
+})
+ */
+
+
+
+// Obtener referencias a los elementos HTML
+const inputText = document.getElementById('inputText');
+const boton1 = document.getElementById('boton1');
+const boton2 = document.getElementById('boton2');
+const displayText = document.getElementById('displayText');
+
+// Verificar si ya hay datos en el Local Storage y mostrarlos
+const savedText = localStorage.getItem('textoGuardado');
+if (savedText) {
+    displayText.textContent = 'Texto guardado: ' + savedText;
+}
+
+// Agregar un manejador de eventos al botón "Guardar"
+boton1.addEventListener('click', function() {
+    // Obtener el valor del input
+    const texto = inputText.value;
+
+    // Guardar el valor en el Local Storage
+    localStorage.setItem('textoGuardado', texto);
+
+    // Mostrar el valor en la página
+    displayText.textContent = 'Texto guardado: ' + texto;
+});
+
+// Agregar un manejador de eventos al botón "Limpiar"
+boton2.addEventListener('click', function() {
+    // Remover el valor del Local Storage
+    localStorage.removeItem('textoGuardado');
+
+    // Limpiar el área de visualización
+    displayText.textContent = 'Texto guardado: ';
+});
+
+
+
+// ...
+
+// // Guardar un valor en localStorage
+// function guardarEnLocalStorage() {
+//     const nombreInput = document.getElementById("nombreLocalStorage");
+//     const nombre = nombreInput.value;
+    
+//     if (nombre) {
+//         localStorage.setItem("nombre", nombre);
+//         alert("Valor guardado en localStorage.");
+//     } else {
+//         alert("Por favor, ingrese un valor.");
+//     }
+// }
+
+// // Obtener un valor de localStorage
+// function obtenerDeLocalStorage() {
+//     const nombreObtenido = localStorage.getItem("nombre");
+//     const valorObtenidoDiv = document.getElementById("valorObtenido");
+
+//     if (nombreObtenido) {
+//         valorObtenidoDiv.textContent = `Valor obtenido de localStorage: ${nombreObtenido}`;
+//     } else {
+//         valorObtenidoDiv.textContent = "El valor no existe en localStorage.";
+//     }
+// }
+
+// // Eliminar un valor de localStorage
+// function eliminarDeLocalStorage() {
+//     localStorage.removeItem("nombre");
+//     alert("Valor eliminado de localStorage.");
+// }
+
+// // ...
