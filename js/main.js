@@ -69,12 +69,21 @@ function pedirHamburguesa() {
         pedirHamburguesaVegana();
     } else if (opcion === 2) {
         pedirHamburguesaCarne();
-    } else {
-        alert("Por favor, elija una opción válida.");
     }
 }
 
 // Función para pedir hamburguesa vegana
+function pedirHamburguesa() {
+    const opcionInput = document.getElementById("opcionInput");
+    const opcion = parseInt(opcionInput.value);
+
+    if (opcion === 1) {
+        pedirHamburguesaVegana();
+    } else if (opcion === 2) {
+        pedirHamburguesaCarne();
+    }
+}
+
 function pedirHamburguesaVegana() {
     const opcionVeganaInput = document.getElementById("opcionVeganaInput");
     const opcion2 = parseInt(opcionVeganaInput.value);
@@ -83,24 +92,23 @@ function pedirHamburguesaVegana() {
         console.log("Eligió la hamburguesa de zanahoria, viene con 1 disco acompañado con lechuga y tomate.");
     } else if (opcion2 === 2) {
         console.log("Eligió la hamburguesa de arvejas, viene con 1 disco acompañado con lechuga y tomate.");
-    } else {
-        alert("Por favor, elija una opción válida.");
     }
 }
 
-// Función para pedir hamburguesa de carne
 function pedirHamburguesaCarne() {
     const opcionCarneInput = document.getElementById("opcionCarneInput");
     const opcion1 = opcionCarneInput.value.toLowerCase();
 
     if (opcion1 === 3) {
-        console.log("Eligió sí, su hamburguesa sería una Triple cheddar con bacon, lechuga y tomate.");
+        console.log("su hamburguesa sería una Triple cheddar con bacon, lechuga y tomate.");
     } else if (opcion1 === 3) {
-        console.log("Eligió no, su hamburguesa sería una Triple con bacon, lechuga y tomate.");
-    } else {
-        alert("Por favor, responda con 'si' o 'no'.");
+        console.log("su hamburguesa sería una Triple con bacon, lechuga y tomate.");
     }
 }
+
+const botonPedirHamburguesa = document.getElementById("pedirHamburguesa");
+botonPedirHamburguesa.addEventListener("click", pedirHamburguesa);
+
 
 // ...
 
