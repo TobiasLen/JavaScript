@@ -106,8 +106,6 @@ function pedirHamburguesaCarne() {
     }
 }
 
-const botonPedirHamburguesa = document.getElementById("pedirHamburguesa");
-botonPedirHamburguesa.addEventListener("click", pedirHamburguesa);
 
 
 // ...
