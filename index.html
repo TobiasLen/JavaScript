@@ -3,45 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aplicación de Hamburguesas</title>
-    <script src="./js/main.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./presupuesto.js" defer></script>
+    <title>Presupuesto de Catering</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>¡Bienvenido a Burgerland!</h1>
+    <h1>Presupuesto de Catering</h1>
+    <div class="formDiv">
+        <form id="catering-form">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
 
-    <h2>Saludo</h2>
-    <input type="text" id="saludoInput" placeholder="Escribe 'hola' aquí" />
-    <button onclick="saludar()">Saludar</button>
-    <div id="saludo"></div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
 
-    <h2>Pedido de Hamburguesa</h2>
-    <label for="opcionInput">Elija una opción de hamburguesa:</label>
-    <select id="opcionInput">
-        <option value="1">Hamburguesa Vegana</option>
-        <option value="2">Hamburguesa de Carne</option>
-    </select>
-    <button onclick="pedirHamburguesa()">Pedir Hamburguesa</button>
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono" name="telefono">
 
-    <div id="opcionVeganaDiv" style="display: none;">
-        <label for="opcionVeganaInput">Eligió la opción hamburguesa vegana. Las opciones son:</label>
-        <select id="opcionVeganaInput">
-            <option value="1">Hamburguesa de zanahoria</option>
-            <option value="2">Hamburguesa de arvejas</option>
-        </select>
+            <label for="sandwiches">Cantidad de Sandwiches:</label>
+            <input type="number" id="sandwiches" name="sandwiches" min="0">
+
+            <label for="pasteles">Cantidad de Pasteles:</label>
+            <input type="number" id="pasteles" name="pasteles" min="0">
+
+            <label for="bebidas">Cantidad de Bebidas:</label>
+            <input type="number" id="bebidas" name="bebidas" min="0">
+
+            <input type="submit" value="Calcular Presupuesto">
+        </form>
     </div>
-
-    <div id="opcionCarneDiv" style="display: none;">
-        <label for="opcionCarneInput">Eligió hamburguesas de carne. ¿Le gustaría agregarle cheddar? (si/no)</label>
-        <input type="text" id="opcionCarneInput" />
-        <button onclick="pedirHamburguesaCarne()">Pedir Hamburguesa de Carne</button>
-    </div>
-
-    <div id="displayText"></div>
-        <h2>Guardar archivo / limpiar archivo </h2>
-        <input type="text" id="inputText" placeholder="Escribe algo...">
-        <button id="boton1">Guardar</button>
-        <button id="boton2">Limpiar</button>
-
-    </div>
+    <div id="resultado"></div>
 </body>
 </html>

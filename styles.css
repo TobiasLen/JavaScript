@@ -1,0 +1,69 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: burlywood;
+    margin: 0   ;
+    padding: 0;
+    text-align: center;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="submit"] {
+    width: auto;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+input[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #555;
+}
+
+/* Estilos del resultado */
+#resultado {
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+h1 {
+    color: #333;
+}
+
+/* Estilos del formulario */
+form {
+    max-width: 700px;
+    margin: auto;
+    padding: 70px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+formDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input{
+    margin-right: 20px;
+}
